@@ -30,6 +30,7 @@ public class TaskGUI extends Frame implements ActionListener {
     private final Button scheduleButton = new Button("Smart Schedule");
     private final Button reportButton = new Button("Reports");
     private final Button tasksButton = new Button("View Tasks");
+    private final Button backButton = new Button("Back to Task Entry");
 
     private static final DateTimeFormatter FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
 
@@ -110,10 +111,21 @@ public class TaskGUI extends Frame implements ActionListener {
     private void buildTaskPanel() {
         Panel p = new Panel(new BorderLayout());
         p.add(taskArea, BorderLayout.CENTER);
+
+        Panel bottom = new Panel(new FlowLayout(FlowLayout.LEFT));
+        bottom.add(backButton);
+        p.add(bottom, BorderLayout.SOUTH);
+
         tasksButton.addActionListener(e -> {
             showAllTasks();
             cards.show(content, "TASKS");
         });
+
+        backButton.addActionListener(e -> {
+            cards.show(content, "ADD");
+            statusLabel.setText("Back to Task Entry.");
+        });
+
         content.add(p, "TASKS");
     }
 
