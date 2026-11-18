@@ -1,6 +1,6 @@
 # Task Scheduling Analyzer
 
-Java end-semester project for managing, prioritizing and scheduling tasks.
+Java end-semester project for managing, prioritizing and scheduling tasks using a simple Java AWT desktop application.
 
 ## Implemented Features
 
@@ -15,21 +15,22 @@ Java end-semester project for managing, prioritizing and scheduling tasks.
 - **Exception Handling:** validation for empty names, task IDs and deadline format
 - **OOP:** separate `Task` model and `TaskManager` service
 - **AWT GUI:** simple Java AWT desktop interface
+- **No Spring Boot:** the project runs directly with the Java compiler and JDK
 
 ## Run
 
-From the project root:
+No Maven or Spring Boot is required.
 
-```bash
-mvn compile
-java -cp target/classes com.taskanalyzer.TaskGUI
-```
-
-If Maven is not installed on Windows, use the Maven wrapper:
+From the project root, compile the Java files:
 
 ```cmd
-mvnw.cmd compile
-java -cp target/classes com.taskanalyzer.TaskGUI
+javac -d out src/main/java/com/taskanalyzer/Task.java src/main/java/com/taskanalyzer/TaskManager.java src/main/java/com/taskanalyzer/TaskGUI.java
+```
+
+Then run the AWT application:
+
+```cmd
+java -cp out com.taskanalyzer.TaskGUI
 ```
 
 ## Deadline Format
@@ -48,6 +49,5 @@ Example:
 src/main/java/com/taskanalyzer/
 ├── Task.java
 ├── TaskManager.java
-├── TaskGUI.java
-└── TaskAnalyzerApplication.java
+└── TaskGUI.java
 ```
